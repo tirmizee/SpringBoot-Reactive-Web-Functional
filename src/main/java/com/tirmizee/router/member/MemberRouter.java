@@ -12,11 +12,11 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 public class MemberRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> route(MemberHandler handler) {
+    public RouterFunction<ServerResponse> memberRoute(MemberHandler handler) {
         return RouterFunctions
                 .route(GET("/member/all"), handler::all)
                 .andRoute(GET("/member/{id}"), handler::get)
-                .andRoute(POST("member/create"), handler::create)
+                .andRoute(POST("/member/create"), handler::create)
                 .andRoute(DELETE("/member/{id}"), handler::delete);
     }
 
